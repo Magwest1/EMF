@@ -6,7 +6,7 @@ The project contains a model folder with a ecore and genmodel file. They are use
 The src-gen folder contains the generated java files, including implementation and util files.
 
 ## Assignment 1
-# The model
+### The model
 For assignment 1 I have modeled the software in the **eMF.ecore** file. It consists of a Programme root class. It has a opposite association and is containment for the Year class. The same relation goes for the Year and Semester class. A Semester can have several Courses thorugh the courseInSemester relationship class. A Specialization can have a relation to a Programme and Semester, and also to another Specialization it may be a part of. The model has a DataType class which enumerates legal credit values. A constraint written in OCL checks that a Programme has at least one year.
-# The generated code
-A constraint written in **EMFValidator.java** ensures that mandatory courses in a year dont exceed *60* credidts. In the **courseInSemesterImpl.java** file the *mandatory* boolean in courseInSemester is derived from the course's mandatoryIn relations.
+### The generated code
+A constraint written in **EMFValidator.java** ensures that mandatory courses in a year dont exceed *60* credidts. In the **courseInSemesterImpl.java** file the *mandatory* boolean in courseInSemester is derived from the course's *mandatoryIn* relations.
