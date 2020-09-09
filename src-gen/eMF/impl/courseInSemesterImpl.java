@@ -115,11 +115,18 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isMandatory() {
-		return mandatory;
+		Course course = this.getCourse();
+		if(course.getMandatoryInProgramme() != null) {
+			return true;
+		}else if(course.getMandatoryInSpecialization() != null) {
+			return true;
+		} else {
+			return false;			
+		}
 	}
 
 	/**
