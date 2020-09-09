@@ -8,12 +8,11 @@
   <foreignModel>eMF.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="EMF" disposableProviderFactory="true" ecorePackage="eMF.ecore#/">
-    <genDataTypes ecoreDataType="eMF.ecore#//Grade"/>
+    <genDataTypes ecoreDataType="eMF.ecore#//Credits"/>
     <genClasses ecoreClass="eMF.ecore#//Programme">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eMF.ecore#//Programme/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eMF.ecore#//Programme/years"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eMF.ecore#//Programme/numberOfYears"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eMF.ecore#//Programme/achievedCredits"/>
     </genClasses>
     <genClasses ecoreClass="eMF.ecore#//Semester">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eMF.ecore#//Semester/semesterNumber"/>

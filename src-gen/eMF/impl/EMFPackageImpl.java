@@ -75,7 +75,7 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType gradeEDataType = null;
+	private EDataType creditsEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -187,16 +187,6 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 	@Override
 	public EAttribute getProgramme_NumberOfYears() {
 		return (EAttribute) programmeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getProgramme_AchievedCredits() {
-		return (EAttribute) programmeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -475,8 +465,8 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getGrade() {
-		return gradeEDataType;
+	public EDataType getCredits() {
+		return creditsEDataType;
 	}
 
 	/**
@@ -513,7 +503,6 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 		createEAttribute(programmeEClass, PROGRAMME__NAME);
 		createEReference(programmeEClass, PROGRAMME__YEARS);
 		createEAttribute(programmeEClass, PROGRAMME__NUMBER_OF_YEARS);
-		createEAttribute(programmeEClass, PROGRAMME__ACHIEVED_CREDITS);
 
 		semesterEClass = createEClass(SEMESTER);
 		createEAttribute(semesterEClass, SEMESTER__SEMESTER_NUMBER);
@@ -548,7 +537,7 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 		createEReference(courseInSemesterEClass, COURSE_IN_SEMESTER__COURSE);
 
 		// Create data types
-		gradeEDataType = createEDataType(GRADE);
+		creditsEDataType = createEDataType(CREDITS);
 	}
 
 	/**
@@ -592,9 +581,6 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 		initEAttribute(getProgramme_NumberOfYears(), ecorePackage.getEInt(), "numberOfYears", null, 0, 1,
 				Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProgramme_AchievedCredits(), ecorePackage.getEFloat(), "achievedCredits", null, 0, 1,
-				Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				IS_DERIVED, IS_ORDERED);
 
 		initEClass(semesterEClass, Semester.class, "Semester", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -629,8 +615,8 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_CourseCode(), ecorePackage.getEString(), "courseCode", null, 0, 1, Course.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourse_Credits(), ecorePackage.getEFloat(), "credits", null, 0, 1, Course.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourse_Credits(), this.getCredits(), "credits", null, 0, 1, Course.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_MandatoryInSpecialization(), this.getSpecialization(), null,
 				"mandatoryInSpecialization", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -659,7 +645,7 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 		initEClass(courseInSemesterEClass, courseInSemester.class, "courseInSemester", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getcourseInSemester_Mandatory(), ecorePackage.getEBoolean(), "mandatory", null, 0, 1,
-				courseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				courseInSemester.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				IS_DERIVED, IS_ORDERED);
 		initEReference(getcourseInSemester_CourseIn(), this.getSemester(), this.getSemester_Courses(), "courseIn", null,
 				0, 1, courseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -671,7 +657,7 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
-		initEDataType(gradeEDataType, Character.class, "Grade", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(creditsEDataType, Float.class, "Credits", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -717,7 +703,7 @@ public class EMFPackageImpl extends EPackageImpl implements EMFPackage {
 	 */
 	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
-		addAnnotation(gradeEDataType, source, new String[] { "enumeration", "A B C D E F" });
+		addAnnotation(creditsEDataType, source, new String[] { "enumeration", "5 7.5 10 15 30" });
 	}
 
 } //EMFPackageImpl

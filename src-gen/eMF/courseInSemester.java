@@ -30,7 +30,7 @@ public interface courseInSemester extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mandatory</em>' attribute.
 	 * @see eMF.EMFPackage#getcourseInSemester_Mandatory()
-	 * @model changeable="false" derived="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	boolean isMandatory();

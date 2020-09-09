@@ -81,8 +81,8 @@ public class EMFFactoryImpl extends EFactoryImpl implements EMFFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-		case EMFPackage.GRADE:
-			return createGradeFromString(eDataType, initialValue);
+		case EMFPackage.CREDITS:
+			return createCreditsFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -96,8 +96,8 @@ public class EMFFactoryImpl extends EFactoryImpl implements EMFFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-		case EMFPackage.GRADE:
-			return convertGradeToString(eDataType, instanceValue);
+		case EMFPackage.CREDITS:
+			return convertCreditsToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -174,8 +174,8 @@ public class EMFFactoryImpl extends EFactoryImpl implements EMFFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Character createGradeFromString(EDataType eDataType, String initialValue) {
-		return (Character) super.createFromString(eDataType, initialValue);
+	public Float createCreditsFromString(EDataType eDataType, String initialValue) {
+		return (Float) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class EMFFactoryImpl extends EFactoryImpl implements EMFFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertGradeToString(EDataType eDataType, Object instanceValue) {
+	public String convertCreditsToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

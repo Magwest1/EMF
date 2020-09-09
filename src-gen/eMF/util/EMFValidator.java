@@ -100,8 +100,8 @@ public class EMFValidator extends EObjectValidator {
 			return validateSpecialization((Specialization) value, diagnostics, context);
 		case EMFPackage.COURSE_IN_SEMESTER:
 			return validatecourseInSemester((courseInSemester) value, diagnostics, context);
-		case EMFPackage.GRADE:
-			return validateGrade((Character) value, diagnostics, context);
+		case EMFPackage.CREDITS:
+			return validateCredits((Float) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -200,18 +200,20 @@ public class EMFValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateYear_creditsInAYear(Year year, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
+		// Checks that mandatory course credits dont exceed 60 points in a year
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		float credits = 0.0f; 
-		for(Semester semester : year.getSemesters()) {
-			for(courseInSemester course : semester.getCourses()) {
-				credits += course.getCourse().getCredits();
+		float credits = 0.0f;
+		for (Semester semester : year.getSemesters()) {
+			for (courseInSemester course : semester.getCourses()) {
+				if (course.isMandatory()) {
+					credits += course.getCourse().getCredits();
+				}
 			}
 		}
-		
-		if (credits != 60) {
+
+		if (credits > 60) {
 			if (diagnostics != null) {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
@@ -257,8 +259,8 @@ public class EMFValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGrade(Character grade, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validateGrade_Enumeration(grade, diagnostics, context);
+	public boolean validateCredits(Float credits, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validateCredits_Enumeration(credits, diagnostics, context);
 		return result;
 	}
 
@@ -266,23 +268,22 @@ public class EMFValidator extends EObjectValidator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 * @see #validateGrade_Enumeration
+	 * @see #validateCredits_Enumeration
 	 */
-	public static final Collection<Object> GRADE__ENUMERATION__VALUES = wrapEnumerationValues(
-			new Object[] { new Character('A'), new Character('B'), new Character('C'), new Character('D'),
-					new Character('E'), new Character('F') });
+	public static final Collection<Object> CREDITS__ENUMERATION__VALUES = wrapEnumerationValues(
+			new Object[] { new Float(5.0F), new Float(7.5F), new Float(10.0F), new Float(15.0F), new Float(30.0F) });
 
 	/**
-	 * Validates the Enumeration constraint of '<em>Grade</em>'.
+	 * Validates the Enumeration constraint of '<em>Credits</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGrade_Enumeration(Character grade, DiagnosticChain diagnostics,
+	public boolean validateCredits_Enumeration(Float credits, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		boolean result = GRADE__ENUMERATION__VALUES.contains(grade);
+		boolean result = CREDITS__ENUMERATION__VALUES.contains(credits);
 		if (!result && diagnostics != null)
-			reportEnumerationViolation(EMFPackage.Literals.GRADE, grade, GRADE__ENUMERATION__VALUES, diagnostics,
+			reportEnumerationViolation(EMFPackage.Literals.CREDITS, credits, CREDITS__ENUMERATION__VALUES, diagnostics,
 					context);
 		return result;
 	}

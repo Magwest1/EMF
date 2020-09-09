@@ -91,7 +91,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float CREDITS_EDEFAULT = 0.0F;
+	protected static final Float CREDITS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getCredits() <em>Credits</em>}' attribute.
@@ -101,7 +101,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 * @ordered
 	 */
-	protected float credits = CREDITS_EDEFAULT;
+	protected Float credits = CREDITS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMandatoryInSpecialization() <em>Mandatory In Specialization</em>}' reference.
@@ -206,7 +206,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 */
 	@Override
-	public float getCredits() {
+	public Float getCredits() {
 		return credits;
 	}
 
@@ -216,8 +216,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 */
 	@Override
-	public void setCredits(float newCredits) {
-		float oldCredits = credits;
+	public void setCredits(Float newCredits) {
+		Float oldCredits = credits;
 		credits = newCredits;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EMFPackage.COURSE__CREDITS, oldCredits, credits));
@@ -454,7 +454,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		case EMFPackage.COURSE__COURSE_CODE:
 			return COURSE_CODE_EDEFAULT == null ? courseCode != null : !COURSE_CODE_EDEFAULT.equals(courseCode);
 		case EMFPackage.COURSE__CREDITS:
-			return credits != CREDITS_EDEFAULT;
+			return CREDITS_EDEFAULT == null ? credits != null : !CREDITS_EDEFAULT.equals(credits);
 		case EMFPackage.COURSE__MANDATORY_IN_SPECIALIZATION:
 			return mandatoryInSpecialization != null;
 		case EMFPackage.COURSE__COURSE:

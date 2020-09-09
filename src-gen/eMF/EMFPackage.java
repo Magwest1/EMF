@@ -96,22 +96,13 @@ public interface EMFPackage extends EPackage {
 	int PROGRAMME__NUMBER_OF_YEARS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Achieved Credits</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAMME__ACHIEVED_CREDITS = 3;
-
-	/**
 	 * The number of structural features of the '<em>Programme</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAMME_FEATURE_COUNT = 4;
+	int PROGRAMME_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Programme</em>' class.
@@ -461,14 +452,14 @@ public interface EMFPackage extends EPackage {
 	int COURSE_IN_SEMESTER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '<em>Grade</em>' data type.
+	 * The meta object id for the '<em>Credits</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.lang.Character
-	 * @see eMF.impl.EMFPackageImpl#getGrade()
+	 * @see java.lang.Float
+	 * @see eMF.impl.EMFPackageImpl#getCredits()
 	 * @generated
 	 */
-	int GRADE = 6;
+	int CREDITS = 6;
 
 	/**
 	 * Returns the meta object for class '{@link eMF.Programme <em>Programme</em>}'.
@@ -512,17 +503,6 @@ public interface EMFPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProgramme_NumberOfYears();
-
-	/**
-	 * Returns the meta object for the attribute '{@link eMF.Programme#getAchievedCredits <em>Achieved Credits</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Achieved Credits</em>'.
-	 * @see eMF.Programme#getAchievedCredits()
-	 * @see #getProgramme()
-	 * @generated
-	 */
-	EAttribute getProgramme_AchievedCredits();
 
 	/**
 	 * Returns the meta object for class '{@link eMF.Semester <em>Semester</em>}'.
@@ -817,16 +797,16 @@ public interface EMFPackage extends EPackage {
 	EReference getcourseInSemester_Course();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Character <em>Grade</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.Float <em>Credits</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Grade</em>'.
-	 * @see java.lang.Character
-	 * @model instanceClass="java.lang.Character"
-	 *        extendedMetaData="enumeration='A B C D E F'"
+	 * @return the meta object for data type '<em>Credits</em>'.
+	 * @see java.lang.Float
+	 * @model instanceClass="java.lang.Float"
+	 *        extendedMetaData="enumeration='5 7.5 10 15 30'"
 	 * @generated
 	 */
-	EDataType getGrade();
+	EDataType getCredits();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -884,14 +864,6 @@ public interface EMFPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROGRAMME__NUMBER_OF_YEARS = eINSTANCE.getProgramme_NumberOfYears();
-
-		/**
-		 * The meta object literal for the '<em><b>Achieved Credits</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROGRAMME__ACHIEVED_CREDITS = eINSTANCE.getProgramme_AchievedCredits();
 
 		/**
 		 * The meta object literal for the '{@link eMF.impl.SemesterImpl <em>Semester</em>}' class.
@@ -1121,14 +1093,14 @@ public interface EMFPackage extends EPackage {
 		EReference COURSE_IN_SEMESTER__COURSE = eINSTANCE.getcourseInSemester_Course();
 
 		/**
-		 * The meta object literal for the '<em>Grade</em>' data type.
+		 * The meta object literal for the '<em>Credits</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.Character
-		 * @see eMF.impl.EMFPackageImpl#getGrade()
+		 * @see java.lang.Float
+		 * @see eMF.impl.EMFPackageImpl#getCredits()
 		 * @generated
 		 */
-		EDataType GRADE = eINSTANCE.getGrade();
+		EDataType CREDITS = eINSTANCE.getCredits();
 
 	}
 

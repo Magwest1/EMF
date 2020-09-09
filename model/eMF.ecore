@@ -15,8 +15,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="years" upperBound="-1"
         eType="#//Year" containment="true" eOpposite="#//Year/yearInProgramme"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfYears" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="achievedCredits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
-        derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Semester">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="semesterNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -42,7 +40,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="courseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="courseCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" eType="#//Credits"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mandatoryInSpecialization"
         eType="#//Specialization"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="course" upperBound="-1"
@@ -61,16 +59,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="courseInSemester">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        changeable="false" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="courseIn" eType="#//Semester"
         eOpposite="#//Semester/courses"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="course" eType="#//Course"
         eOpposite="#//Course/course"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Grade" instanceClassName="java.lang.Character">
+  <eClassifiers xsi:type="ecore:EDataType" name="Credits" instanceClassName="java.lang.Float">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="enumeration" value="A B C D E F"/>
+      <details key="enumeration" value="5 7.5 10 15 30"/>
     </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

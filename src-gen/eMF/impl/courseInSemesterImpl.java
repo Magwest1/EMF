@@ -44,16 +44,6 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	protected static final boolean MANDATORY_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isMandatory() <em>Mandatory</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMandatory()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean mandatory = MANDATORY_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getCourseIn() <em>Course In</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,12 +110,12 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean isMandatory() {
 		Course course = this.getCourse();
-		if(course.getMandatoryInProgramme() != null) {
+		if (course.getMandatoryInProgramme() != null) {
 			return true;
-		}else if(course.getMandatoryInSpecialization() != null) {
+		} else if (course.getMandatoryInSpecialization() != null) {
 			return true;
 		} else {
-			return false;			
+			return false;
 		}
 	}
 
@@ -403,7 +393,7 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case EMFPackage.COURSE_IN_SEMESTER__MANDATORY:
-			return mandatory != MANDATORY_EDEFAULT;
+			return isMandatory() != MANDATORY_EDEFAULT;
 		case EMFPackage.COURSE_IN_SEMESTER__COURSE_IN:
 			return courseIn != null;
 		case EMFPackage.COURSE_IN_SEMESTER__LEVEL:
@@ -425,9 +415,7 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (mandatory: ");
-		result.append(mandatory);
-		result.append(", level: ");
+		result.append(" (level: ");
 		result.append(level);
 		result.append(')');
 		return result.toString();

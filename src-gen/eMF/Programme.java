@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eMF.Programme#getName <em>Name</em>}</li>
  *   <li>{@link eMF.Programme#getYears <em>Years</em>}</li>
  *   <li>{@link eMF.Programme#getNumberOfYears <em>Number Of Years</em>}</li>
- *   <li>{@link eMF.Programme#getAchievedCredits <em>Achieved Credits</em>}</li>
  * </ul>
  *
  * @see eMF.EMFPackage#getProgramme()
@@ -84,27 +83,5 @@ public interface Programme extends EObject {
 	 * @generated
 	 */
 	void setNumberOfYears(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Achieved Credits</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Achieved Credits</em>' attribute.
-	 * @see #setAchievedCredits(float)
-	 * @see eMF.EMFPackage#getProgramme_AchievedCredits()
-	 * @model derived="true"
-	 * @generated
-	 */
-	float getAchievedCredits();
-
-	/**
-	 * Sets the value of the '{@link eMF.Programme#getAchievedCredits <em>Achieved Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Achieved Credits</em>' attribute.
-	 * @see #getAchievedCredits()
-	 * @generated
-	 */
-	void setAchievedCredits(float value);
 
 } // Programme

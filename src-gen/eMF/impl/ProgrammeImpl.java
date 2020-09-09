@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link eMF.impl.ProgrammeImpl#getName <em>Name</em>}</li>
  *   <li>{@link eMF.impl.ProgrammeImpl#getYears <em>Years</em>}</li>
  *   <li>{@link eMF.impl.ProgrammeImpl#getNumberOfYears <em>Number Of Years</em>}</li>
- *   <li>{@link eMF.impl.ProgrammeImpl#getAchievedCredits <em>Achieved Credits</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,26 +87,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * @ordered
 	 */
 	protected int numberOfYears = NUMBER_OF_YEARS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getAchievedCredits() <em>Achieved Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAchievedCredits()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float ACHIEVED_CREDITS_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getAchievedCredits() <em>Achieved Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAchievedCredits()
-	 * @generated
-	 * @ordered
-	 */
-	protected float achievedCredits = ACHIEVED_CREDITS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,30 +173,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public float getAchievedCredits() {
-		return achievedCredits;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAchievedCredits(float newAchievedCredits) {
-		float oldAchievedCredits = achievedCredits;
-		achievedCredits = newAchievedCredits;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EMFPackage.PROGRAMME__ACHIEVED_CREDITS,
-					oldAchievedCredits, achievedCredits));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -256,8 +211,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			return getYears();
 		case EMFPackage.PROGRAMME__NUMBER_OF_YEARS:
 			return getNumberOfYears();
-		case EMFPackage.PROGRAMME__ACHIEVED_CREDITS:
-			return getAchievedCredits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -281,9 +234,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		case EMFPackage.PROGRAMME__NUMBER_OF_YEARS:
 			setNumberOfYears((Integer) newValue);
 			return;
-		case EMFPackage.PROGRAMME__ACHIEVED_CREDITS:
-			setAchievedCredits((Float) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -305,9 +255,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		case EMFPackage.PROGRAMME__NUMBER_OF_YEARS:
 			setNumberOfYears(NUMBER_OF_YEARS_EDEFAULT);
 			return;
-		case EMFPackage.PROGRAMME__ACHIEVED_CREDITS:
-			setAchievedCredits(ACHIEVED_CREDITS_EDEFAULT);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -326,8 +273,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			return years != null && !years.isEmpty();
 		case EMFPackage.PROGRAMME__NUMBER_OF_YEARS:
 			return numberOfYears != NUMBER_OF_YEARS_EDEFAULT;
-		case EMFPackage.PROGRAMME__ACHIEVED_CREDITS:
-			return achievedCredits != ACHIEVED_CREDITS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -347,8 +292,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		result.append(name);
 		result.append(", numberOfYears: ");
 		result.append(numberOfYears);
-		result.append(", achievedCredits: ");
-		result.append(achievedCredits);
 		result.append(')');
 		return result.toString();
 	}
